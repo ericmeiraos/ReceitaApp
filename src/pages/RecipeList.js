@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
+  Typography,
   Grid,
   Card,
   CardContent,
-  Typography,
-  TextField,
+  CardMedia,
   Button,
+  TextField,
   IconButton,
   Pagination,
   CircularProgress,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { recipeService } from '../services/api';
 
-function RecipeList() {
+const RecipeList = () => {
+  const navigate = useNavigate();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const navigate = useNavigate();
 
   const fetchRecipes = async () => {
     try {
@@ -130,6 +131,14 @@ function RecipeList() {
                       },
                     }}
                   >
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={recipe.imagem || 'https://picsum.photos/300/200'}
+                      alt={recipe.nome}
+                      sx={{ cursor: 'pointer' }}
+                      onClick={() => navigate(`/receitas/${recipe.id}`)}
+                    />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         gutterBottom
@@ -139,6 +148,19 @@ function RecipeList() {
                         onClick={() => navigate(`/receitas/${recipe.id}`)}
                       >
                         {recipe.nome}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                        }}
+                      >
+                        {recipe.descricao}
                       </Typography>
                       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
                         <IconButton
@@ -181,6 +203,6 @@ function RecipeList() {
       )}
     </Box>
   );
-}
+};
 
 export default RecipeList; 

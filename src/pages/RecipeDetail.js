@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
   Paper,
-  Grid,
   Button,
-  CircularProgress,
-  Divider,
   List,
   ListItem,
   ListItemText,
   IconButton,
+  CircularProgress,
 } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { recipeService } from '../services/api';
 
-function RecipeDetail() {
+const RecipeDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchRecipe();
-  }, [id]);
 
   const fetchRecipe = async () => {
     try {
@@ -38,6 +32,10 @@ function RecipeDetail() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchRecipe();
+  }, [id]);
 
   const handleDelete = async () => {
     if (window.confirm('Tem certeza que deseja excluir esta receita?')) {
@@ -173,19 +171,6 @@ function RecipeDetail() {
             </List>
           </Paper>
 
-         {/* <Paper elevation={2} sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              Nutrição
-            </Typography>
-            {recipe.nutricao && Object.keys(recipe.nutricao).length > 0 ? (
-              <pre style={{ fontSize: 14, background: '#f5f5f5', padding: 8, borderRadius: 4 }}>
-                {JSON.stringify(recipe.nutricao, null, 2)}
-              </pre>
-            ) : (
-              <Typography variant="body2" color="text.secondary">Não informado</Typography>
-            )}
-          </Paper>*/}
-
           {Array.isArray(recipe.secoes) && recipe.secoes.length > 0 && (
             <Paper elevation={2} sx={{ p: 3 }}>
               <Typography variant="h6" gutterBottom>
@@ -264,6 +249,6 @@ function RecipeDetail() {
       </Box>
     </Paper>
   );
-}
+};
 
 export default RecipeDetail; 

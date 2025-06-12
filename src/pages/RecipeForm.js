@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Box,
   TextField,
   Button,
   Typography,
   Paper,
-  Grid,
   IconButton,
   CircularProgress,
   Container,
 } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import { recipeService } from '../services/api';
 
-function RecipeForm() {
+const RecipeForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -402,6 +401,6 @@ function RecipeForm() {
       </Paper>
     </Container>
   );
-}
+};
 
 export default RecipeForm; 
