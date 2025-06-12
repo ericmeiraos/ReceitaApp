@@ -22,6 +22,11 @@ jobs:
       with:
         node-version: 13.x
     
+    - name: Remove node_modules and package-lock.json
+      run: |
+        rd -r node_modules
+        del package-lock.json
+    
     - name: Install NPM packages
       run: npm ci
     
