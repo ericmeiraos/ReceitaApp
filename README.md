@@ -28,7 +28,7 @@ Aplicação web para gerenciamento e compartilhamento de receitas culinárias, c
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/ericmeiraos/Receitas_app.git
+git clone https://github.com/ericmeiraos/ReceitaApp.git
 cd Receitas_app
 ```
 
