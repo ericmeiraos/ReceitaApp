@@ -10,7 +10,6 @@ import {
   Button,
   TextField,
   IconButton,
-  Pagination,
   CircularProgress,
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
@@ -30,11 +29,9 @@ const RecipeList = () => {
       setLoading(true);
       const data = await recipeService.getAll((page - 1) * 10, 10);
       setRecipes(Array.isArray(data) ? data : []);
-      setTotalPages(Math.ceil((Array.isArray(data) ? data.length : 0) / 10));
     } catch (error) {
       console.error('Erro ao buscar receitas:', error);
       setRecipes([]);
-      setTotalPages(1);
     } finally {
       setLoading(false);
     }
@@ -48,13 +45,11 @@ const RecipeList = () => {
 
     try {
       setLoading(true);
-      const data = await recipeService.searchByName(searchTerm.trim(), (page - 1) * 10, 10);
+      const data = await recipeService.searchByName(searchTerm.trim(), (page - 1) * 10, 10); 
       setRecipes(Array.isArray(data) ? data : []);
-      setTotalPages(Math.ceil((Array.isArray(data) ? data.length : 0) / 10));
     } catch (error) {
       console.error('Erro ao buscar receitas:', error);
       setRecipes([]);
-      setTotalPages(1);
     } finally {
       setLoading(false);
     }
@@ -75,7 +70,7 @@ const RecipeList = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     if (searchTerm.trim()) {
       handleSearch();
     } else {
@@ -132,9 +127,9 @@ const RecipeList = () => {
                     }}
                   >
                     <CardMedia
-                      component="img"
+                    /*  component="img"*/
                       height="200"
-                      image={recipe.imagem || 'https://picsum.photos/300/200'}
+                     /* image={recipe.imagem || 'https://picsum.photos/300/200'}*/
                       alt={recipe.nome}
                       sx={{ cursor: 'pointer' }}
                       onClick={() => navigate(`/receitas/${recipe.id}`)}
@@ -189,16 +184,23 @@ const RecipeList = () => {
             )}
           </Grid>
 
-          {totalPages > 1 && (
-            <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-              <Pagination
-                count={totalPages}
-                page={page}
-                onChange={(e, value) => setPage(value)}
-                color="primary"
-              />
-            </Box>
-          )}
+          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+            <Button
+              variant="outlined"
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+            >
+              Anterior
+            </Button>
+            <Typography variant="body1" sx={{ mx: 2 }}>Página {page}</Typography>
+            <Button
+              variant="outlined"
+              onClick={() => setPage(page + 1)}
+              disabled={recipes.length < 10}
+            >
+              Próximo
+            </Button>
+          </Box>
         </>
       )}
     </Box>

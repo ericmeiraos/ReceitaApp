@@ -69,7 +69,7 @@ const RecipeDetail = () => {
     recipe.ingredientes ||
     [];
 
-  const instrucoes =
+  const instrucoes = 
     recipe.secoes?.find(s => s.nome === 'Modo de Preparo')?.conteudo ||
     recipe.instrucoes ||
     [];

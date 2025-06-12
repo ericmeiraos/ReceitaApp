@@ -64,7 +64,7 @@ const RecipeForm = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e) => {  
     const { name, value } = e.target;
     setRecipe((prev) => ({
       ...prev,
@@ -72,7 +72,7 @@ const RecipeForm = () => {
     }));
   };
 
-  const handleIngredientChange = (index, value) => {
+  const handleIngredientChange = (index, value) => { 
     const newIngredients = [...recipe.ingredientes];
     newIngredients[index] = value;
     setRecipe((prev) => ({
@@ -81,7 +81,7 @@ const RecipeForm = () => {
     }));
   };
 
-  const handleInstructionChange = (index, value) => {
+  const handleInstructionChange = (index, value) => {  
     const newInstructions = [...recipe.instrucoes];
     newInstructions[index] = value;
     setRecipe((prev) => ({
@@ -123,7 +123,6 @@ const RecipeForm = () => {
     try {
       setLoading(true);
 
-      // Monta o payload no formato esperado pela API
       const payload = {
         nome: recipe.nome,
         descricao: recipe.descricao,
@@ -141,7 +140,7 @@ const RecipeForm = () => {
         secoes: []
       };
 
-      if (id) {
+      if (id) { 
         await recipeService.update(id, payload);
       } else {
         await recipeService.create(payload);

@@ -55,7 +55,7 @@ const Home = () => {
           <Paper
             elevation={3}
             sx={{
-              p: 4,
+              p: 4, 
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
@@ -106,7 +106,7 @@ const Home = () => {
         </Grid>
       </Grid>
 
-      {recipes.length > 0 && (
+     {/* {recipes.length > 0 && (
         <Box sx={{ mt: 8, textAlign: 'center' }}>
           <Button
             variant="contained"
@@ -116,7 +116,7 @@ const Home = () => {
             Ver Todas as Receitas
           </Button>
         </Box>
-      )}
+      )}*/}
     </Box>
   );
 };

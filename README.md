@@ -1,70 +1,72 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🍳 Receitas da Vovô
 
-## Available Scripts
+Aplicação web para gerenciamento e compartilhamento de receitas culinárias, com interface moderna, responsiva e fácil de usar.
 
-In the project directory, you can run:
+## 📌 Visão Geral
 
-### `npm start`
+**Receitas da Vovô** é um projeto frontend desenvolvido em React, focado na criação, visualização, edição e compartilhamento de receitas. A aplicação consome uma API RESTful externa e utiliza a biblioteca Material-UI para uma experiência de usuário elegante e responsiva.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🧑‍💻 Equipe
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Alisson Tito**
+- **Éric Meira**  
+- **Jeová Pinheiro**  
+- **Juan Felix**  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tecnologias
 
-### `npm run build`
+* **React** 18.x
+* **Material-UI (MUI)** 5.x
+* **React Router DOM** 6.x
+* **Axios**
+* **Fonte Poppins**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Como Executar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone o repositório
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/ericmeiraos/Receitas_app.git
+cd Receitas_app
+```
 
-### `npm run eject`
+### 2. Instale as dependências
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Inicie o servidor de desenvolvimento
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## 🎨 Interface do Usuário
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Páginas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **🏠 Home**: Introdução ao projeto e navegação principal
+* **📋 Lista de Receitas**: Visualização em grade das receitas disponíveis
+* **📖 Detalhes da Receita**: Exibição completa de uma receita selecionada
+* **✏️ Formulário de Receita**: Cadastro e edição de receitas
 
-### Code Splitting
+### Componentes Principais
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* **Navbar**: Navegação responsiva no topo da aplicação
+* **RecipeCard**: Card com visualização resumida das receitas
+* **RecipeForm**: Formulário completo para criar ou editar receitas
+* **SectionList**: Lista de seções da receita (ingredientes, preparo, etc.)
 
-### Analyzing the Bundle Size
+## 📱 Responsividade
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A aplicação é totalmente adaptável a diferentes dispositivos:
 
-### Making a Progressive Web App
+* **📱 Mobile**: até 600px
+* **📱 Tablet**: 601px a 960px
+* **💻 Desktop**: acima de 961px
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
