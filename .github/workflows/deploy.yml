@@ -22,11 +22,11 @@ jobs:
       with:
         node-version: 13.x
     
-    - name: Clean install
+    - name: Install dependencies
       run: |
         rm -rf node_modules
         rm -f package-lock.json
-        npm ci
+        npm install
     
     - name: Build project
       run: npm run build
